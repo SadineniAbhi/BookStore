@@ -1,0 +1,94 @@
+This is A Flask application 
+@  MAKE SURE TO RUN ON CMD AND DO NOT USE VSCODE TO INSTALL.
+#######################################################################################################################
+
+Follow the steps below to run the flask app:-
+
+1.And create new conda environment with python verison of 3.7 by using following command --- conda create -n ENVIRONMENTNAME python=3.7 
+
+                      #rember to change the ENVIROMENTNAME to choise of yours.
+
+2.Activate the environment and install the requirments.txt file in book store folder using the following command -- pip install -r requirement.txt
+                      #make sure to cd BookStore.
+                      #make sure to autocomplete the requirements file.
+                      
+3.Run the app.py file while which is inside the bookstore folder
+
+
+THE GOOGLE TOOL
+
+I used google cloud to host the webapplication.
+
+#########################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+url for website:- https://quantum-star-403121.el.r.appspot.com/
+#not working as expect(SORRY CAN'T HELP!!)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
