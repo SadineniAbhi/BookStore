@@ -36,7 +36,7 @@ def login():
             flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
 
 
-            return redirect(url_for("store"))
+            return redirect(url_for("show_books"))
         else:
             flash('Username and password are not match! Please try again', category='danger')
 

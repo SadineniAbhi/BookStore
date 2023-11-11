@@ -29,4 +29,4 @@ db = SQLAlchemy(app)
 #reads and updates the changes in the database design
 Migrate(app,db)
 
-from project.routes import home, checkout, store,orders,admin_routes,login_register
+from project.routes import buying_page, home, admin_routes,login_register, previous_orders, storepage
