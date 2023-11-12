@@ -1,31 +1,26 @@
-from project import app,db
+from project import app
 from flask import render_template,redirect,url_for,request
-from project.models.Book_model import Book
-from project.models.cart_models import Cart, CartItem
 from project.forms.addtocart import AddToCart
-from flask_login import current_user
+from project.services.get_books import get_books
+from project.services.add_to_cart_model import add_to_cart_model
 
 @app.route("/store",methods =["GET"])
 def show_books():
     form = AddToCart()
-    books = Book.query.all()
+    books = get_books()
     return render_template("store_page.html",books = books,form = form)
 
 @app.route("/store", methods = ["POST"])
 def add_to_cart():
-    current = current_user
-    books = Book.query.all()
+
     form = AddToCart()
     if form.validate_on_submit():
         book_id = int(request.form['book_id'])
         if book_id:
-            if current.cart == None:
-                newcart = Cart(user_id = current.id)
-                db.session.add(newcart)
-                db.session.commit()
-            cart_item = CartItem(cart_id=current.cart.id, book_id=book_id)
-            db.session.add(cart_item)
-            db.session.commit()
+            add_to_cart_model(book_id)
         return redirect(url_for("get_cart_items"))
-    return render_template("store_page.html",books = books,form = form)
+    return render_template("store_page.html",form = form)
+
+
+
 

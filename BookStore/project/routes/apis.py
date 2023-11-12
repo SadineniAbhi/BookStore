@@ -1,6 +1,7 @@
+from BookStore.project.models import book_model
 from project import app, db
 from flask import request,jsonify
-from project.models import Book_model,OrderItem
+from project.models import OrderItem
 
 @app.route('/api/books', methods=['GET',"POST","PUT"])
 def get_all_books():
@@ -12,7 +13,7 @@ def get_all_books():
         }
     }
     # Retrieve all books from your database
-    books = Book_model.query.all()
+    books = book_model.query.all()
     if request.method == "GET":
         books_list = []
         for book in books:
@@ -31,7 +32,7 @@ def get_all_books():
     if request.method == "POST":
         data = request.get_json()
         try:
-            newbook = Book_model(data['title'],data['author'],data["isbn"],data["genre"],data['price'],data["availability"])
+            newbook = book_model(data['title'],data['author'],data["isbn"],data["genre"],data['price'],data["availability"])
             db.session.add(newbook)
             db.session.commit()
             return jsonify({"message":"sucssesfully added the book"})
@@ -41,7 +42,7 @@ def get_all_books():
     if request.method == "PUT":
         data = request.get_json()
         try:
-            reqiredbook = Book_model.query.get(data["id"])
+            reqiredbook = book_model.query.get(data["id"])
             reqiredbook.availability = data["availability"]
             db.session.commit()
             return jsonify({"message":"succesfully update the availablity!"})
