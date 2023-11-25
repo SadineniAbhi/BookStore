@@ -47,4 +47,4 @@ def login():
 def logout():
     logout_user()
     flash("you have been logged out!!",category='info')
-    return redirect(url_for('home'))
+    return redirect(url_for('show_books'))

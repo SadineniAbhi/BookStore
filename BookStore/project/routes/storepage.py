@@ -4,6 +4,7 @@ from project.forms.addtocart import AddToCart
 from project.services.get_books import get_books
 from project.services.add_to_cart_model import add_to_cart_model
 
+@app.route('/')
 @app.route("/store",methods =["GET"])
 def show_books():
     form = AddToCart()
