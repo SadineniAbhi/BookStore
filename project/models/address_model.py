@@ -1,4 +1,4 @@
-from project import db 
+from project.extensions import db 
 import datetime
 from project.models.user_model import User
 class Address(db.Model):

@@ -1,4 +1,4 @@
-from project import db
+from project.extensions import db
 import datetime
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)

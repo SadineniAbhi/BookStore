@@ -1,5 +1,5 @@
 import datetime
-from project import db 
+from project.extensions import db 
 from project.models.user_model import User
 class Login(db.Model):
     id = db.Column(db.Integer, primary_key=True)

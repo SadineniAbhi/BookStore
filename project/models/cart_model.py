@@ -1,4 +1,4 @@
-from project import db
+from project.extensions import db
 from project.models.book_model import Book
 from project.models.user_model import User
 import datetime
