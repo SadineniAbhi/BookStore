@@ -38,6 +38,8 @@ def create_app(config_class=Config):
     from project.admin import bp as admin_blueprint
     app.register_blueprint(admin_blueprint)
 
+    from project.store import bp as store_blueprint
+    app.register_blueprint(store_blueprint)
     @app.route('/test/')
     def test_page():
         return '<h1>Testing the Flask Application Factory Pattern</h1>'
