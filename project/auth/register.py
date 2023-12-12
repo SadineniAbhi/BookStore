@@ -2,7 +2,7 @@ from project.auth import bp
 from flask import request,jsonify
 import datetime
 from project import bcrypt
-from services.user_services.add_user import add_user
+from services.auth_services.add_user import add_user
 from project.models.user_model import User
 
 @bp.route("/register",methods = ["POST"])

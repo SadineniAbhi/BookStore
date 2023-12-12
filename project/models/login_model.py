@@ -9,3 +9,4 @@ class Login(db.Model):
     last_updated = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
     
+

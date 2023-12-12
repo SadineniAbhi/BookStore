@@ -1,7 +1,7 @@
 from project.extensions import db
 import datetime
 from datetime import datetime
-
+from project import bcrypt
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
@@ -11,3 +11,6 @@ class User(db.Model):
     created_date_time = db.Column(db.DateTime, default=datetime.utcnow)
     last_updated = db.Column(db.DateTime, default=datetime.utcnow)
     last_updated_by = db.Column(db.String(20))
+
+    def check_password(self,password):
+        return bcrypt.check_password_hash(self.password,password)
