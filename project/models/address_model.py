@@ -9,7 +9,7 @@ class Address(db.Model):
     city_name = db.Column(db.String(100),nullable = False)
     country_id = db.Column(db.ForeignKey('country.id'),nullable = False)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
-    state_id = db.Column(db.Integer,db.ForeignKey('state.state_id'))
+    state_id = db.Column(db.Integer,db.ForeignKey('state.state_id'),nullable=False)
     created_date_time = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
@@ -21,6 +21,6 @@ class Country(db.Model):
 
 class State(db.Model):
     state_id = db.Column(db.Integer, primary_key=True)
-    Country_id = db.Column(db.Integer,db.ForeignKey('country.id'))
+    Country_id = db.Column(db.Integer,db.ForeignKey('country.id'),nullable = False)
     state_name = db.Column(db.String(100),nullable = False,unique = True)
 
