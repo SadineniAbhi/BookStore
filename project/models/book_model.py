@@ -8,4 +8,4 @@ class Book(db.Model):
     availability = db.Column(db.Integer,nullable = False)
     created_date_time = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated = db.Column(db.DateTime, default=datetime.datetime.now())
-    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'))
+    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)

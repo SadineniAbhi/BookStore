@@ -3,6 +3,7 @@ from instance.config import Config
 from flask_bcrypt import Bcrypt
 from project.extensions import db,bcrypt,jwt
 from project.models.user_model import User
+
 @jwt.user_identity_loader
 def user_identity_lookup(user):
     return user.id
@@ -24,7 +25,6 @@ def create_app(config_class=Config):
     from .models.cart_model import Cart
     from .models.login_model import Login
     from .models.order_model import Order
-
     # Initialize Flask extensions here
     jwt.init_app(app)
     bcrypt.init_app(app)
@@ -40,6 +40,10 @@ def create_app(config_class=Config):
 
     from project.store import bp as store_blueprint
     app.register_blueprint(store_blueprint)
+
+    from project.address import bp as address_blueprint
+    app.register_blueprint(address_blueprint)
+
     @app.route('/test/')
     def test_page():
         return '<h1>Testing the Flask Application Factory Pattern</h1>'

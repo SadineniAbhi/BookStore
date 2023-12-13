@@ -1,10 +1,13 @@
 from project.admin import bp 
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required,current_user
 from flask import request,jsonify
 from services.books_services.delete_book import del_book
 @bp.route("/delete_book",methods = ["POST","GET"])
 @jwt_required()
 def delete_books():
+    if not current_user.is_admin:
+        return jsonify({"msg":"unAuthorized"})
+    
     book_name = request.json.get("book_name",None)
     try:
         del_book(book_name)

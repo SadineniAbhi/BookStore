@@ -8,11 +8,11 @@ class Address(db.Model):
     street_name = db.Column(db.String(100), nullable = False)
     city_name = db.Column(db.String(100),nullable = False)
     country_id = db.Column(db.ForeignKey('country.id'),nullable = False)
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
     state_id = db.Column(db.Integer,db.ForeignKey('state.state_id'))
     created_date_time = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated = db.Column(db.DateTime, default=datetime.datetime.now())
-    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'))
+    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
 
 #lookup tables
 class Country(db.Model):

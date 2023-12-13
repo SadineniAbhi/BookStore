@@ -2,11 +2,14 @@ from services.order_services.get_orders_of_users import get_all_orders
 from project.store import bp 
 from flask import jsonify
 from services.books_services.get_book_details import getBookDetails
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required,current_user
 
 @bp.route("/getorders",methods = ["GET"])
 @jwt_required()
 def getorders():
+    if not current_user.is_admin:
+        return jsonify({"msg":"unAuthorized"})
+    
     orders = get_all_orders()
     ordersdict = {}
 

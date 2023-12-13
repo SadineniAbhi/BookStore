@@ -9,10 +9,10 @@ class Order(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
     quantity = db.Column(db.Integer,nullable=False,default = 1)
     status_code = db.Column(db.Integer,db.ForeignKey('delivery.status_code'),nullable = False)
-    delivery_address = db.Column(db.Integer,db.ForeignKey('address.id'))
+    delivery_address = db.Column(db.Integer,db.ForeignKey('address.id'),nullable = False)
     created_date_time = db.Column(db.DateTime, default=datetime.datetime.now())
     last_updated = db.Column(db.DateTime, default=datetime.datetime.now())
-    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'))
+    last_updated_by = db.Column(db.Integer,db.ForeignKey('user.id'),nullable = False)
 
 #look up table 
 class Delivery(db.Model):

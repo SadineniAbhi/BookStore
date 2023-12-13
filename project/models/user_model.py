@@ -10,7 +10,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     created_date_time = db.Column(db.DateTime, default=datetime.utcnow)
     last_updated = db.Column(db.DateTime, default=datetime.utcnow)
-    last_updated_by = db.Column(db.String(20))
+    last_updated_by = db.Column(db.String(20),nullable = False)
 
     def check_password(self,password):
         return bcrypt.check_password_hash(self.password,password)

@@ -6,6 +6,8 @@ from flask_jwt_extended import jwt_required,current_user
 @bp.route("/addbooks",methods = ["GET","POST"])
 @jwt_required()
 def add_books():
+    if not current_user.is_admin:
+        return jsonify({"msg":"unAuthorized"})
     book_name = request.json.get('book_name')
     author = request.json.get("author")
     price = request.json.get("price")
