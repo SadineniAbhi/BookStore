@@ -12,8 +12,9 @@ def add_books():
     author = request.json.get("author")
     price = request.json.get("price")
     availability = request.json.get("availability")
-    addbooks(book_name=book_name,author=author,price=price,availability=availability,last_updated_by = current_user.id)
+    
     try:
+        addbooks(book_name=book_name,author=author,price=price,availability=availability,last_updated_by = current_user.id)
         return jsonify({"msg":'added books!'}),200
     except:
         return jsonify({'msg':'can not add books!'}),500
